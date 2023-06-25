@@ -38,7 +38,7 @@ struct Leaderboard: View {
             HStack{
                 VStack(alignment: .leading){
                     Text("NYC Leaderboard")
-                        .font(.system(size: 30, weight: .semibold))
+                        .font(.system(size: 35, weight: .heavy))
                     Text("Possible Rewards: $3000")
                         .font(.system(size: 20, weight: .light))
                 }

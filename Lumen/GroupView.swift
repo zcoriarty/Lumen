@@ -61,7 +61,7 @@ class GroupData: ObservableObject {
     }
     
     init() {
-        userStore.currentUser = CurrentUser(name: "Initial", zipCode: "00000", totalBets: 0)
+        userStore.currentUser = CurrentUser(name: "Initial", zipCode: "", totalBets: 0)
     }
     var totalPossibleWinnings: Int {
         groups.reduce(0) { $0 + $1.totalPot }
@@ -78,6 +78,9 @@ struct GroupView: View {
     var body: some View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 20) {
+                    Text("Your Groups")
+                        .font(.system(size: 35, weight: .heavy))
+
                     Text("Total Bets: $\(groupData.userStore.currentUser?.totalBets ?? 0, specifier: "%.2f")")
                         .font(.system(size: 20, weight: .light))
                         .padding(.bottom)

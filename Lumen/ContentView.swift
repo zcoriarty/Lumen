@@ -44,7 +44,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if isSignupComplete {
+                if !isSignupComplete {
                     SignupView(isSignupComplete: $isSignupComplete)
                         .environmentObject(userStore)
                         

@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import CoreLocation
+import CoreLocationUI
+
 
 struct CurrentUser {
     var name: String
@@ -21,6 +24,8 @@ class UserStore: ObservableObject {
     }
 }
 
+
+
 struct SignupView: View {
     @EnvironmentObject var userStore: UserStore
     @Binding var isSignupComplete: Bool // Add the binding
@@ -29,7 +34,7 @@ struct SignupView: View {
     @State private var zipCode = ""
     @State private var isNameValid = true
     @State private var isZipValid = true
-    
+
     var body: some View {
         VStack {
             Text("Signup")
@@ -42,14 +47,6 @@ struct SignupView: View {
                     isNameValid = !newValue.isEmpty
                 }
                 .border(isNameValid ? Color.gray : Color.red, width: 1)
-                .cornerRadius(6)
-            
-            TextField("Address", text: $zipCode)
-                .padding()
-//                .onChange(of: zipCode) { newValue in
-//                    isZipValid = newValue.count == 5 && newValue.allSatisfy({ $0.isNumber })
-//                }
-                .border(isZipValid ? Color.gray : Color.red, width: 1)
                 .cornerRadius(6)
             
             Button(action: {
