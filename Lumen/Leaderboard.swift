@@ -39,7 +39,7 @@ struct Leaderboard: View {
                 VStack(alignment: .leading){
                     Text("NYC Leaderboard")
                         .font(.system(size: 30, weight: .semibold))
-                    Text("Community Pot: $3000")
+                    Text("Possible Rewards: $3000")
                         .font(.system(size: 20, weight: .light))
                 }
                 
@@ -58,16 +58,18 @@ struct Leaderboard: View {
                         Text("Leaderboard")
                             .font(.system(size: 35, weight: .heavy))
                             .padding(.bottom)
-                        Text("Users can earn money off their rent by continuously using a below average energy usage, per person, for their zip code.")
+                        Text("Users can earn money off their rent by continuously using a below average energy usage, per person, for NYC.")
                             .font(.title3)
 //                            .padding(.bottom)
                         Text("The higher a users streak the more they're able to earn!")
                             .font(.title3)
+                        Spacer()
+                        Text("A function of diminishing returnsis used: y = a*sqrt(x). Meaningyour returns decelerate as you earn, but you're always earning more!")
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.yellow.opacity(0.4)) // Change the background color to your desired color
 //                    .padding()
-                    .presentationDetents([.medium])
+                    .presentationDetents([.height(300)])
                     
                         
                 }
@@ -122,20 +124,32 @@ struct Leaderboard: View {
 struct Leaderboard_Previews: PreviewProvider {
     static var previews: some View {
         let users = [
-            User(name: "Zach Coriarty", profileImage: "😀", rentSaved: 40, streak: 8),
-            User(name: "Joe Smith", profileImage: "😄", rentSaved: 15, streak: 7),
-            User(name: "Vanessa Abbey", profileImage: "😀", rentSaved: 10, streak: 7),
-            User(name: "Madhu Sriram", profileImage: "😄", rentSaved: 10, streak: 5),
-            User(name: "Alan Robinson", profileImage: "😀", rentSaved: 10, streak: 4),
-            User(name: "Kim Kardashian", profileImage: "😄", rentSaved: 5, streak: 4),
-            User(name: "Will Smith", profileImage: "😀", rentSaved: 4, streak: 3),
-            User(name: "Rocky Balboa", profileImage: "😄", rentSaved: 4, streak: 1),
-            User(name: "John Doe", profileImage: "😄", rentSaved: 2, streak: 0),
-            User(name: "Natalie Portman", profileImage: "☹️", rentSaved: 0, streak: 0),
-            User(name: "Dwayne Johnson", profileImage: "☹️", rentSaved: 0, streak: 0),
-            User(name: "William Lou", profileImage: "☹️", rentSaved: 0, streak: 0),
-            User(name: "Lindsey Liu", profileImage: "☹️", rentSaved: 0, streak: 0),
-            User(name: "Harry Styles", profileImage: "☹️", rentSaved: 0, streak: 0),
+            User(name: "Zach Coriarty", profileImage: "😀", rentSaved: 10 * sqrt(8), streak: 8),
+            User(name: "Joe Smith", profileImage: "😄", rentSaved: 10 * sqrt(7), streak: 7),
+            User(name: "Vanessa Abbey", profileImage: "😀", rentSaved: 10 * sqrt(7), streak: 7),
+            User(name: "Taylor Swift", profileImage: "😀", rentSaved: 10 * sqrt(6), streak: 6),
+            User(name: "Beyonce Knowles", profileImage: "😄", rentSaved: 10 * sqrt(5), streak: 5),
+            User(name: "Madhu Sriram", profileImage: "😄", rentSaved: 10 * sqrt(5), streak: 5),
+            User(name: "Ariana Grande", profileImage: "😀", rentSaved: 10 * sqrt(4), streak: 4),
+            User(name: "Alan Robinson", profileImage: "😀", rentSaved: 10 * sqrt(4), streak: 4),
+            User(name: "Kim Kardashian", profileImage: "😄", rentSaved: 10 * sqrt(4), streak: 4),
+            User(name: "Will Smith", profileImage: "😀", rentSaved: 10 * sqrt(3), streak: 3),
+            User(name: "Justin Bieber", profileImage: "😄", rentSaved: 10 * sqrt(3), streak: 3),
+            User(name: "Billie Eilish", profileImage: "😀", rentSaved: 10 * sqrt(2), streak: 2),
+            User(name: "Ed Sheeran", profileImage: "😄", rentSaved: 10 * sqrt(1), streak: 1),
+            User(name: "Rocky Balboa", profileImage: "😄", rentSaved: 10 * sqrt(1), streak: 1),
+            User(name: "John Doe", profileImage: "😄", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Natalie Portman", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Dwayne Johnson", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "William Lou", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Lindsey Liu", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Harry Styles", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Rihanna Fenty", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Katy Perry", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Bruno Mars", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Lady Gaga", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0),
+            User(name: "Adele Adkins", profileImage: "☹️", rentSaved: 10 * sqrt(0), streak: 0)
+
         ]
         Leaderboard(users: users)
     }

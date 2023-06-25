@@ -14,7 +14,7 @@
 		9B5990A92A487D0D006AC7D7 /* BarGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5990A02A487D0C006AC7D7 /* BarGraph.swift */; };
 		9B5990AB2A487D0D006AC7D7 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5990A32A487D0D006AC7D7 /* GroupView.swift */; };
 		9B5990AC2A487D0D006AC7D7 /* LumenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5990A42A487D0D006AC7D7 /* LumenApp.swift */; };
-		9B5990AE2A487D22006AC7D7 /* Assets 3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B5990AD2A487D22006AC7D7 /* Assets 3.xcassets */; };
+		9B5990AE2A487D22006AC7D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B5990AD2A487D22006AC7D7 /* Assets.xcassets */; };
 		9B5990B02A487D32006AC7D7 /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5990AF2A487D32006AC7D7 /* Signup.swift */; };
 		9B5990B22A487D70006AC7D7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5990B12A487D70006AC7D7 /* Profile.swift */; };
 		9B5990B42A487DF4006AC7D7 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5990B32A487DF4006AC7D7 /* Leaderboard.swift */; };
@@ -25,7 +25,6 @@
 		9BB7A0B72A473EB900FEC474 /* LumenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7A0B62A473EB900FEC474 /* LumenUITests.swift */; };
 		9BB7A0B92A473EB900FEC474 /* LumenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7A0B82A473EB900FEC474 /* LumenUITestsLaunchTests.swift */; };
 		9BB7A0CC2A4747E500FEC474 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7A0CB2A4747E500FEC474 /* Home.swift */; };
-		9BB7A0D02A47654700FEC474 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7A0CF2A47654700FEC474 /* GroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +52,7 @@
 		9B5990A02A487D0C006AC7D7 /* BarGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarGraph.swift; sourceTree = "<group>"; };
 		9B5990A32A487D0D006AC7D7 /* GroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		9B5990A42A487D0D006AC7D7 /* LumenApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LumenApp.swift; sourceTree = "<group>"; };
-		9B5990AD2A487D22006AC7D7 /* Assets 3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets 3.xcassets"; sourceTree = "<group>"; };
+		9B5990AD2A487D22006AC7D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B5990AF2A487D32006AC7D7 /* Signup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
 		9B5990B12A487D70006AC7D7 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		9B5990B32A487DF4006AC7D7 /* Leaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
@@ -68,7 +67,6 @@
 		9BB7A0B62A473EB900FEC474 /* LumenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITests.swift; sourceTree = "<group>"; };
 		9BB7A0B82A473EB900FEC474 /* LumenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9BB7A0CB2A4747E500FEC474 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		9BB7A0CF2A47654700FEC474 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,9 +124,8 @@
 				9B5990B72A487E44006AC7D7 /* HomeAnimation.swift */,
 				9B5990B32A487DF4006AC7D7 /* Leaderboard.swift */,
 				9B5990A32A487D0D006AC7D7 /* GroupView.swift */,
-				9B5990AD2A487D22006AC7D7 /* Assets 3.xcassets */,
+				9B5990AD2A487D22006AC7D7 /* Assets.xcassets */,
 				9BB7A0CB2A4747E500FEC474 /* Home.swift */,
-				9BB7A0CF2A47654700FEC474 /* GroupView.swift */,
 				9B5990A02A487D0C006AC7D7 /* BarGraph.swift */,
 				9B59909C2A487D0C006AC7D7 /* ContentView.swift */,
 				9B59909D2A487D0C006AC7D7 /* Home.swift */,
@@ -270,7 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B5990BA2A487E83006AC7D7 /* Preview Assets.xcassets in Resources */,
-				9B5990AE2A487D22006AC7D7 /* Assets 3.xcassets in Resources */,
+				9B5990AE2A487D22006AC7D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +297,6 @@
 				9B59903E2A478CCF006AC7D7 /* Signup.swift in Sources */,
 				9B5990AC2A487D0D006AC7D7 /* LumenApp.swift in Sources */,
 				9B5990A82A487D0D006AC7D7 /* Download.swift in Sources */,
-				9BB7A0D02A47654700FEC474 /* GroupView.swift in Sources */,
 				9BB7A0CC2A4747E500FEC474 /* Home.swift in Sources */,
 				9B5990B82A487E44006AC7D7 /* HomeAnimation.swift in Sources */,
 				9B5990B02A487D32006AC7D7 /* Signup.swift in Sources */,

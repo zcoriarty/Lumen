@@ -38,11 +38,11 @@ class GroupData: ObservableObject {
             UserDetail(id: 3, name: "Joe", betAmount: 0),
             UserDetail(id: 4, name: "Louise", betAmount: 20),
             UserDetail(id: 5, name: "Sydney", betAmount: 5),
-            UserDetail(id: 6, name: "Zach", betAmount: 0),
-            UserDetail(id: 7, name: "Sally", betAmount: 5),
-            UserDetail(id: 8, name: "Joe", betAmount: 5),
-            UserDetail(id: 9, name: "Louise", betAmount: 2),
-            UserDetail(id: 10, name: "Sydney", betAmount: 3),]),
+            UserDetail(id: 6, name: "Andrew", betAmount: 0),
+            UserDetail(id: 7, name: "Tessa", betAmount: 5),
+            UserDetail(id: 8, name: "Lin", betAmount: 5),
+            UserDetail(id: 9, name: "Mario", betAmount: 2),
+            UserDetail(id: 10, name: "Nav", betAmount: 3),]),
 
 
     ]

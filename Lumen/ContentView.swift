@@ -58,7 +58,7 @@ struct ContentView: View {
                             .tag(2)
                         Profile()
                             .tabItem {
-                                selection == 3 ? Image(systemName: "person.2") : Image(systemName: "person.2.fill")
+                                selection == 3 ? Image(systemName: "lightbulb") : Image(systemName: "lightbulb.fill")
                             }
                             .tag(3)
                     }

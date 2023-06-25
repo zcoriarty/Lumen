@@ -13,6 +13,8 @@ struct Profile: View {
         ScrollView(.vertical, showsIndicators: false) {
             
             VStack(spacing: 15){
+                Text("Your Metrics")
+                    .font(.system(size: 30, weight: .semibold))
                 
                 // Header..
                 HStack(spacing: 15){
@@ -29,16 +31,6 @@ struct Profile: View {
                     
                     Spacer()
                     
-                    Button {
-                        
-                    } label: {
-                        Image("Profile")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 45, height: 45)
-                            .clipShape(Circle())
-                    }
-
                 }
                 .foregroundColor(.white)
                 
@@ -53,20 +45,17 @@ struct Profile: View {
                     
                     Text("$95.00")
                         .font(.title2.bold())
-                        .foregroundColor(.white)
-                    
-                    Text("/cash out")
-                        .font(.callout)
                         .foregroundColor(.gray)
+                    
                     
                     Spacer()
                     
                     Button {
                         
                     } label: {
-                        Text("Accept")
+                        Text("Cash Out")
                             .font(.callout)
-                            .foregroundColor(Color.gray)
+                            .foregroundColor(Color.black)
                             .padding(.vertical,10)
                             .padding(.horizontal)
                             .background(
@@ -83,6 +72,7 @@ struct Profile: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
 //        .background(Color("BG").ignoresSafeArea())
 //        .preferredColorScheme(.dark)
+        
     }
     
     @ViewBuilder
@@ -92,31 +82,15 @@ struct Profile: View {
             
             HStack{
                 
-                Button {
-                    
-                } label: {
-                    Text("Show All")
-                        .font(.caption2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .padding(.vertical,10)
-                        .padding(.horizontal)
-                        .background(
-                        
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("BG"))
-                        )
-                }
-                .padding(.trailing,10)
                 
                 Image(systemName: "checkmark")
                     .font(.caption.bold())
                     .foregroundColor(Color("BG"))
                     .padding(6)
-                    .background(Color("Green"))
+                    .background(Color(hex: "#FFE800"))
                     .cornerRadius(8)
                 
-                Text("Followers")
+                Text("Total Usage")
                     .font(.callout)
                     .foregroundColor(.gray)
                     .padding(.trailing,10)
@@ -125,10 +99,10 @@ struct Profile: View {
                     .font(.caption.bold())
                     .foregroundColor(Color("BG"))
                     .padding(6)
-                    .background(Color("Purple"))
+                    .background(Color(hex: "#FFE800"))
                     .cornerRadius(8)
                 
-                Text("Following")
+                Text("Energy Saved")
                     .font(.callout)
                     .foregroundColor(.gray)
                     .padding(.trailing,10)
@@ -136,11 +110,11 @@ struct Profile: View {
             
             VStack(spacing: 15){
                 
-                Text("$93.5K")
+                Text("$1200")
                     .font(.largeTitle.bold())
                     .scaleEffect(1.3)
                 
-                Text("Earning This Month")
+                Text("Rent Savings This Month")
                     .font(.callout)
                     .foregroundColor(.gray)
             }
@@ -152,7 +126,7 @@ struct Profile: View {
                 
                 StatView(title: "Followers", count: "87.57K", image: "checkmark", color: "Green")
                 
-                StatView(title: "Following", count: "27.57K", image: "play.fill", color: "Purple")
+                SavedView(title: "Following", count: "27.57K", image: "play.fill", color: "Purple")
             }
             .padding(.top)
         }
@@ -161,7 +135,7 @@ struct Profile: View {
         .background(
         
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.black)
+                .fill(Color.gray.opacity(0.2))
         )
     }
     
@@ -173,12 +147,12 @@ struct Profile: View {
             HStack{
                 Image(systemName: image)
                     .font(.caption.bold())
-                    .foregroundColor(Color(color))
+                    .foregroundColor(Color(hex: "#FFE800"))
                     .padding(6)
                     .background(Color("BG"))
                     .cornerRadius(8)
                 
-                Text("Followers")
+                Text("Total Usage")
             }
             
             Text(count)
@@ -188,9 +162,37 @@ struct Profile: View {
         .padding(.vertical,22)
         .padding(.horizontal,18)
         .frame(maxWidth: .infinity,alignment: .leading)
-        .background(Color(color))
+        .background(Color(hex: "#FFE800"))
         .cornerRadius(15)
     }
+    
+    @ViewBuilder
+    func SavedView(title: String,count: String,image: String,color: String)->some View{
+        
+        VStack(alignment: .leading, spacing: 25) {
+            
+            HStack{
+                Image(systemName: image)
+                    .font(.caption.bold())
+                    .foregroundColor(Color(hex: "#FFE800"))
+                    .padding(6)
+                    .background(Color("BG"))
+                    .cornerRadius(8)
+                
+                Text("Energy Saved")
+            }
+            
+            Text(count)
+                .font(.title.bold())
+        }
+        .foregroundColor(Color("BG"))
+        .padding(.vertical,22)
+        .padding(.horizontal,18)
+        .frame(maxWidth: .infinity,alignment: .leading)
+        .background(Color(hex: "#FFE800"))
+        .cornerRadius(15)
+    }
+
     
     @ViewBuilder
     func DownloadStats()->some View{
@@ -252,7 +254,7 @@ struct Profile: View {
                         .background(
                         
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color("BG"))
+                                .fill(Color.gray.opacity(0.5))
                         )
                 }
 
@@ -267,7 +269,7 @@ struct Profile: View {
         .background(
         
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.black)
+                .fill(Color.gray.opacity(0.2))
         )
         .padding(.vertical,20)
     }
