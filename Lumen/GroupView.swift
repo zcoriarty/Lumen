@@ -78,8 +78,19 @@ struct GroupView: View {
     var body: some View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Your Groups")
-                        .font(.system(size: 35, weight: .heavy))
+                    HStack {
+                        Text("Your Groups")
+                            .font(.system(size: 35, weight: .heavy))
+                        Spacer()
+                        Button(action: {
+                            self.showingNewGroupView = true
+                        }) {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.gray)
+                        }
+                    }
 
                     Text("Total Bets: $\(groupData.userStore.currentUser?.totalBets ?? 0, specifier: "%.2f")")
                         .font(.system(size: 20, weight: .light))
