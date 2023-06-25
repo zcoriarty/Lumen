@@ -44,12 +44,11 @@ struct SignupView: View {
                 .border(isNameValid ? Color.gray : Color.red, width: 1)
                 .cornerRadius(6)
             
-            TextField("Zip Code", text: $zipCode)
-                .keyboardType(.numberPad)
+            TextField("Address", text: $zipCode)
                 .padding()
-                .onChange(of: zipCode) { newValue in
-                    isZipValid = newValue.count == 5 && newValue.allSatisfy({ $0.isNumber })
-                }
+//                .onChange(of: zipCode) { newValue in
+//                    isZipValid = newValue.count == 5 && newValue.allSatisfy({ $0.isNumber })
+//                }
                 .border(isZipValid ? Color.gray : Color.red, width: 1)
                 .cornerRadius(6)
             

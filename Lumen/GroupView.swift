@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 import Charts
+import UIKit
 
 
 struct Group {
@@ -70,19 +72,16 @@ class GroupData: ObservableObject {
 
 
 struct GroupView: View {
-    
-
     @ObservedObject var groupData = GroupData()
     @State private var showingNewGroupView = false
     
     var body: some View {
-        NavigationView {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Total Bets: $\(groupData.userStore.currentUser?.totalBets ?? 0, specifier: "%.2f")")
                         .font(.system(size: 20, weight: .light))
                         .padding(.bottom)
-
+                    
                     ForEach(groupData.groups, id: \.id) { group in
                         NavigationLink(destination: GroupDetailView(group: group, groupData: groupData)) {
                             GroupRow(group: group)
@@ -95,7 +94,6 @@ struct GroupView: View {
                 Text("Total Pot Value: $\(groupData.totalPossibleWinnings)")
                     .font(.headline)
                     .padding()
-
             }
             .navigationTitle("Your Groups")
             .navigationBarItems(trailing: Button(action: {
@@ -110,10 +108,22 @@ struct GroupView: View {
                 NewGroupView(isPresented: self.$showingNewGroupView, groupData: groupData)
                     .environmentObject(self.groupData)
                     .presentationDetents([.height(250)])
-
             }
-        }
     }
+}
+
+struct ActivityViewController: UIViewControllerRepresentable {
+
+    var activityItems: [Any]
+    var applicationActivities: [UIActivity]? = nil
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
+        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {}
+
 }
 
 
@@ -151,32 +161,54 @@ struct GroupDetailView: View {
     @State var showKeypad = false
     @State var betAmount: Int? = 0
     @State var activeUser: UserDetail? = nil
+    @State private var showShareSheet = false
+    @State private var items: [Any] = []
+
+
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(group.users, id: \.id) { user in
-                    UserRow(user: user, totalPot: group.totalPot)
-                        .padding([.top, .horizontal])
-                        .onTapGesture {
-                            self.activeUser = user
-                            self.showKeypad = true
-                        }
-                }
-            }
-            .sheet(isPresented: $showKeypad) {
-                KeypadView(betAmount: $betAmount, onDismiss: {
-                    self.showKeypad = false
-                }) {
-                    if let bet = betAmount, let user = activeUser {
-                        groupData.addBet(groupId: group.id, userId: user.id, bet: bet)
+        NavigationView {
+            ScrollView {
+                VStack {
+                    ForEach(group.users, id: \.id) { user in
+                        UserRow(user: user, totalPot: group.totalPot)
+                            .padding([.top, .horizontal])
+                            .onTapGesture {
+                                self.activeUser = user
+                                self.showKeypad = true
+                            }
                     }
-                    self.showKeypad = false
                 }
-                .padding()
-                .presentationDetents([.medium])
+                .sheet(isPresented: $showKeypad) {
+                    KeypadView(betAmount: $betAmount, onDismiss: {
+                        self.showKeypad = false
+                    }) {
+                        if let bet = betAmount, let user = activeUser {
+                            groupData.addBet(groupId: group.id, userId: user.id, bet: bet)
+                        }
+                        self.showKeypad = false
+                    }
+                    .padding()
+                    .presentationDetents([.medium])
+                }
+                
             }
             .navigationTitle(group.name)
+            .navigationBarItems(trailing: Button(action: {
+                // prepare the items you want to share
+                self.items = ["Share this content"]
+                self.showShareSheet = true
+            }) {
+                Image(systemName: "square.and.arrow.up")
+                    .padding()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(.black)
+            }
+            .sheet(isPresented: $showShareSheet) {
+                ActivityViewController(activityItems: [URL(string: "https://www.lumen.com/ashGryKhy")!])
+                    .presentationDetents([.medium])
+            })
+
         }
     }
 }
@@ -298,7 +330,7 @@ struct NewGroupView: View {
                 Button(action: {
                     // Generate a new user ID, you may want to replace this with a more robust id generation logic
                     let newUserId = groupData.groups.flatMap { $0.users }.count + 1
-                    let newUserDetail = UserDetail(id: newUserId, name: userStore.currentUser?.name ?? "Anonymous", betAmount: 0)
+                    let newUserDetail = UserDetail(id: newUserId, name: userStore.currentUser?.name ?? "Me", betAmount: 0)
                     let newGroup = Group(id: groupData.groups.count + 1, name: groupName, totalPot: 0, daysLeft: 0, userCount: 1, potHistory: [], users: [newUserDetail])
                     groupData.groups.append(newGroup)
                     self.isPresented = false

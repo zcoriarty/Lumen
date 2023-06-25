@@ -16,12 +16,13 @@ struct User: Identifiable {
     let streak: Int
 }
 
-
 struct Leaderboard: View {
     
     let users: [User]
     let maxRentSaved: Double
+    let possibleRewards: Double = 3000
     @State private var isShowingExplanation = false
+    @State private var selectedUser: User? = nil
     
     init(users: [User]) {
         self.users = users
@@ -57,21 +58,16 @@ struct Leaderboard: View {
                     VStack(alignment: .leading){
                         Text("Leaderboard")
                             .font(.system(size: 35, weight: .heavy))
-                            .padding(.bottom)
+                            .padding(.vertical)
                         Text("Users can earn money off their rent by continuously using a below average energy usage, per person, for NYC.")
                             .font(.title3)
-//                            .padding(.bottom)
-                        Text("The higher a users streak the more they're able to earn!")
+                        Text("The higher a users streak the more they're able to earn!\n")
                             .font(.title3)
-                        Spacer()
-                        Text("A function of diminishing returnsis used: y = a*sqrt(x). Meaningyour returns decelerate as you earn, but you're always earning more!")
+                        Text("A function of diminishing returns is used. Meaning your returns decelerate as you earn, but you're always earning more!")
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.yellow.opacity(0.4)) // Change the background color to your desired color
-//                    .padding()
-                    .presentationDetents([.height(300)])
-                    
-                        
+                    .presentationDetents([.height(350)])
+                    .padding()
                 }
                 
             }
@@ -91,33 +87,43 @@ struct Leaderboard: View {
                         ZStack {
                             Circle()
                                 .fill(Color.gray.opacity(0.25))
-                                .frame(width: 40, height: 40) // Decreased size
+                                .frame(width: 40, height: 40)
                             Text(user.profileImage)
-                                .font(.system(size: 20)) // Decreased size
+                                .font(.system(size: 20))
                         }
                         VStack(alignment: .leading) {
                             Text(user.name)
-                                .font(.headline) // Adjusted size
+                                .font(.headline)
                         }
-
                         Spacer()
                         VStack {
                             Text("Streak: \(user.streak)")
-                                .font(.system(size: 15, weight: .regular)) // Adjusted size
+                                .font(.system(size: 15, weight: .regular))
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                     }
-                    .padding(.horizontal, 10) // Decreased padding
-                    .padding(.vertical, 2) // Decreased padding
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 2)
                 }
                 .background(Color.white)
                 .cornerRadius(10)
-                .padding(.vertical, 2) // Decreased padding
+                .padding(.vertical, 2)
                 .frame(height: 60)
-
+                .onTapGesture {
+                    self.selectedUser = user
+                }
+                .alert(item: $selectedUser) { user in
+                    Alert(title: Text(user.name),
+                          message: Text("\(user.name) would earn $\(calculateEarnings(user: user), specifier: "%.2f") towards their rent"),
+                          dismissButton: .default(Text("Got it!")))
+                }
             }
         }
         .padding()
+    }
+    
+    private func calculateEarnings(user: User) -> Double {
+        return (user.rentSaved / 100) * possibleRewards
     }
 }
 

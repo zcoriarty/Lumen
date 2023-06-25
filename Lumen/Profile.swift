@@ -102,7 +102,7 @@ struct Profile: View {
                     .background(Color(hex: "#FFE800"))
                     .cornerRadius(8)
                 
-                Text("Energy Saved")
+                Text("Saved")
                     .font(.callout)
                     .foregroundColor(.gray)
                     .padding(.trailing,10)
@@ -110,7 +110,7 @@ struct Profile: View {
             
             VStack(spacing: 15){
                 
-                Text("$1200")
+                Text("$848.53")
                     .font(.largeTitle.bold())
                     .scaleEffect(1.3)
                 
@@ -124,9 +124,9 @@ struct Profile: View {
             
             HStack(spacing: 10){
                 
-                StatView(title: "Followers", count: "87.57K", image: "checkmark", color: "Green")
+                StatView(title: "Followers", count: "187.5kWh", image: "checkmark", color: "Green")
                 
-                SavedView(title: "Following", count: "27.57K", image: "play.fill", color: "Purple")
+                SavedView(title: "Following", count: "27.57kWh", image: "play.fill", color: "Purple")
             }
             .padding(.top)
         }
@@ -135,7 +135,7 @@ struct Profile: View {
         .background(
         
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.gray.opacity(0.2))
+                .fill(Color.gray.opacity(0.1))
         )
     }
     
@@ -156,7 +156,7 @@ struct Profile: View {
             }
             
             Text(count)
-                .font(.title.bold())
+                .font(.system(size: 20, weight: .bold))
         }
         .foregroundColor(Color("BG"))
         .padding(.vertical,22)
@@ -183,7 +183,7 @@ struct Profile: View {
             }
             
             Text(count)
-                .font(.title.bold())
+                .font(.system(size: 20, weight: .bold))
         }
         .foregroundColor(Color("BG"))
         .padding(.vertical,22)
@@ -203,7 +203,7 @@ struct Profile: View {
                 
                 VStack(alignment: .leading, spacing: 13) {
                     
-                    Text("Ads Expense")
+                    Text("Energy Usage")
                         .font(.title)
                         .fontWeight(.semibold)
                     
@@ -269,7 +269,7 @@ struct Profile: View {
         .background(
         
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.gray.opacity(0.2))
+                .fill(Color.gray.opacity(0.1))
         )
         .padding(.vertical,20)
     }
