@@ -122,8 +122,32 @@ struct HomeAnimation: View {
                 }
             }
             .sheet(isPresented: $showBreakdown) {
-                Text("Breakdown")
-                    .presentationDetents([.medium])
+                ScrollView {
+                    Text("Why Use Lumen")
+                        .font(.system(size: 35, weight: .heavy))
+                        .padding(.top)
+                   let education = """
+                    1. Air Conditioning and Heating: These systems can account for nearly half of a home's energy usage. Regular maintenance and sealing your home against drafts can significantly reduce your energy usage.
+                    
+                     2. Water Heaters: Water heaters are typically the second highest source of energy usage in the home. Lowering the temperature to 120 degrees Fahrenheit can help save energy.
+                    
+                     3. Washing Machines and Dryers: Front-loading washing machines are more energy-efficient than top-loading ones. Always run full loads and clean the lint filter in the dryer after every use.
+                    
+                     4. Refrigerators and Freezers: These appliances account for about a sixth of all electricity use in a typical American home. Keep the refrigerator between 35 and 38 degrees Fahrenheit and the freezer at 0 degrees.
+                    
+                     5. Lighting: LED light bulbs use at least 75% less energy, and last 25 times longer, than incandescent lighting. Turning off lights when not in use can also help reduce energy usage.
+                    
+                     6. Electronics: Even when turned off, electronics often use a small amount of electricity. Using a power strip for your electronics and turning it off when not in use can help reduce energy consumption.
+                    
+                     7. Dishwashers: Dishwashers use less water than washing dishes by hand. Air-drying dishes instead of using the heat dry setting can also save energy.
+                    
+                     8. Ovens and Stovetops: Using a microwave or toaster oven to reheat food or cook small meals can save as much as 80% of the energy used to cook in a conventional oven.
+                    
+                     9. Computers and Home Office Equipment: Laptops are more energy-efficient than desktop computers. Using power management settings can significantly reduce energy use.
+                    """
+                    Text(education)
+                        .padding()
+                }
             }
 
             

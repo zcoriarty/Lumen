@@ -12,27 +12,9 @@ struct Profile: View {
         
         ScrollView(.vertical, showsIndicators: false) {
             
-            VStack(spacing: 15){
+            VStack(alignment: .leading, spacing: 15){
                 Text("Your Metrics")
-                    .font(.system(size: 30, weight: .semibold))
-                
-                // Header..
-                HStack(spacing: 15){
-                    Button {
-                        
-                    } label: {
-                        
-                        Image(systemName: "arrow.left")
-                            .font(.title2)
-                    }
-
-                    Text("My Stats")
-                        .font(.title2)
-                    
-                    Spacer()
-                    
-                }
-                .foregroundColor(.white)
+                    .font(.system(size: 40, weight: .heavy))
                 
                 // Download Stats....
                 DownloadStats()
@@ -235,31 +217,6 @@ struct Profile: View {
                 .offset(y: -10)
 
             }
-            
-            HStack{
-                
-                Text("$12.85")
-                    .font(.largeTitle.bold())
-                
-                Spacer()
-                
-                Button {
-                    
-                } label: {
-                    Text("Download")
-                        .font(.callout)
-                        .foregroundColor(.white)
-                        .padding(.vertical,10)
-                        .padding(.horizontal)
-                        .background(
-                        
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.gray.opacity(0.5))
-                        )
-                }
-
-            }
-            .padding(.vertical,20)
             
             // Bar Graph With Gestures...
             BarGraph(downloads: weekDownloads)
